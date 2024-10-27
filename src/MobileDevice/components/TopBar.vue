@@ -1,11 +1,11 @@
 <script setup>
-import { useRoute } from 'vue-router'
+// import { useRoute } from 'vue-router'
 
 import battery_icon from '@/MobileDevice/assets/icons/battery-half.svg'
 import wifi_icon from '@/MobileDevice/assets/icons/wifi.svg'
 import network_icon from '@/MobileDevice/assets/icons/reception-4.svg'
 
-const route = useRoute()
+// const route = useRoute()
 </script>
 
 <template>
@@ -14,9 +14,9 @@ const route = useRoute()
       <img :src="network_icon" style="width: 16px" />
       <img :src="wifi_icon" style="width: 18px" />
       <img :src="battery_icon" style="width: 22px" />
-      <span class="battery-percentage">42%</span>
+      <span class="battery-percentage">38%</span>
     </div>
-    <div class="time" v-if="!(route.name === 'main_screen')">20:41</div>
+    <!-- <div class="time" v-if="!(route.name === 'main_screen')">20:41</div> -->
   </main>
 </template>
 
