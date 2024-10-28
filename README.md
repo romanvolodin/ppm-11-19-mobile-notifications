@@ -13,8 +13,10 @@
 
 ## Render
 
-BG:
-
 ```bash
-google-chrome --headless --hide-scrollbars --window-size=360,800 --force-device-scale-factor=2 --screenshot=../../out/ppm-7-14a-settings_v01.png http://localhost:5173/
+google-chrome --headless --hide-scrollbars --window-size=360,800 --force-device-scale-factor=2 --screenshot=../../out/ppm-11-19-mobile-notifications_v01_preview.png http://localhost:5173/
+
+google-chrome --headless --hide-scrollbars --window-size=360,800 --force-device-scale-factor=2 --screenshot=../../out/ppm-11-19-mobile-notifications_v01_bg.png http://localhost:5173/?bgOnly=true
+
+google-chrome --headless --hide-scrollbars --window-size=360,800 --force-device-scale-factor=2 --screenshot=../../out/ppm-11-19-mobile-notifications_v01_fg.png http://localhost:5173/?notificationsOnly=true
 ```

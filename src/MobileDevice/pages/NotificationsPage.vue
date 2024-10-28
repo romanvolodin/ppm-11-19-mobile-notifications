@@ -1,33 +1,51 @@
 <script setup>
+import { useRoute } from 'vue-router'
+
 import TopBar from '@/MobileDevice/components/TopBar.vue'
 import BottomBar from '@/MobileDevice/components/BottomBar.vue'
 import TimeWidget from '@/MobileDevice/components/TimeWidget.vue'
 import NotificationBox from '@/MobileDevice/components/NotificationBox.vue'
+
+const route = useRoute()
+const renderBgOnly = Boolean(route.query.bgOnly === 'true')
+const renderNotificationsOnly = Boolean(route.query.notificationsOnly === 'true')
 </script>
 
 <template>
-  <main class="wrapper bg">
-    <TopBar />
+  <main class="wrapper bg" :class="{ greenScreen: renderNotificationsOnly }">
+    <TopBar class="top-bar" />
     <div class="main">
       <TimeWidget class="time-widget" />
 
-      <NotificationBox icon-color="#ffb465" sender="Лисиц" time="1 мин" body="Как ты там?" />
-      <NotificationBox
-        icon-color="#81d981"
-        sender="Нинель"
-        time="5 мин"
-        body="Коша, держись! Всё буд..."
-      />
-      <NotificationBox
-        icon-color="#81d981"
-        sender="Нинель"
-        time="15 мин"
-        body="Пропущенный вызов (2)"
-      />
-      <NotificationBox icon-color="#d9cf81" sender="Макар" time="20 мин" body="Пропущенный вызов" />
-      <NotificationBox icon-color="#ffb465" sender="Лисиц" time="33 мин" body="Пропущенный вызов" />
+      <template v-if="!renderBgOnly">
+        <NotificationBox icon-color="#ffb465" sender="Лисиц" time="1 мин" body="Как ты там?" />
+        <NotificationBox
+          icon-color="#81d981"
+          sender="Нинель"
+          time="5 мин"
+          body="Коша, держись! Всё буд..."
+        />
+        <NotificationBox
+          icon-color="#81d981"
+          sender="Нинель"
+          time="15 мин"
+          body="Пропущенный вызов (2)"
+        />
+        <NotificationBox
+          icon-color="#d9cf81"
+          sender="Макар"
+          time="20 мин"
+          body="Пропущенный вызов"
+        />
+        <NotificationBox
+          icon-color="#ffb465"
+          sender="Лисиц"
+          time="33 мин"
+          body="Пропущенный вызов"
+        />
+      </template>
     </div>
-    <BottomBar />
+    <BottomBar class="bottom-bar" />
   </main>
 </template>
 
@@ -56,5 +74,16 @@ import NotificationBox from '@/MobileDevice/components/NotificationBox.vue'
 .device {
   margin-bottom: 20px;
   font-size: 18px;
+}
+.greenScreen {
+  background-image: none;
+  background-color: #0f0;
+}
+.greenScreen > .main > .time-widget {
+  opacity: 0;
+}
+.greenScreen > .top-bar,
+.greenScreen > .bottom-bar {
+  opacity: 0;
 }
 </style>
