@@ -38,7 +38,7 @@ import NotificationBox from '@/MobileDevice/components/NotificationBox.vue'
   height: 100vh;
 }
 .bg {
-  background-image: url(wallpaper.jpg);
+  background-image: url(screen.jpg);
   background-position: center;
   background-size: cover;
 }

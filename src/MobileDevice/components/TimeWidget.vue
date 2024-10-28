@@ -14,6 +14,7 @@
   margin-top: 30px;
 }
 .time {
+  color: white;
   font-size: 60px;
 }
 .date {
